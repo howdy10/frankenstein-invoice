@@ -1,0 +1,40 @@
+name: FrankensteinInvoice
+options:
+  bundleIdPrefix: com.frankensteinconcrette
+  deploymentTarget:
+    iOS: "17.0"
+
+targets:
+  FrankensteinInvoice:
+    type: application
+    platform: iOS
+    sources:
+      - path: FrankensteinInvoice
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.frankensteinconcrette.invoice
+        SWIFT_VERSION: 5.9
+        TARGETED_DEVICE_FAMILY: "1"
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        ENABLE_PREVIEWS: YES
+    info:
+      path: FrankensteinInvoice/Info.plist
+      properties:
+        CFBundleDisplayName: FC Invoice
+        LSRequiresIPhoneOS: true
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+
+  FrankensteinInvoiceTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: FrankensteinInvoiceTests
+    dependencies:
+      - target: FrankensteinInvoice
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.frankensteinconcrette.invoiceTests
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
